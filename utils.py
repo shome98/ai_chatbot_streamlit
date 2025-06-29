@@ -1,13 +1,15 @@
+import streamlit as st
 from datetime import datetime
 from pymongo import MongoClient
 from passlib.hash import bcrypt
 import os
 import hashlib
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
-MONGO_URI = os.getenv("MONGO_URI")
+# MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI =st.secrets["MONGO_URI"]
 client = MongoClient(MONGO_URI)
 db = client.chatbot_db_host
 users_collection = db.users
