@@ -3,19 +3,15 @@ import requests
 import json
 import os
 import hashlib
-# from dotenv import load_dotenv
 from datetime import datetime
 from utils import get_user, create_user, verify_password, save_message_pair, get_messages
 
 # Load environment variables
-# load_dotenv()
-# api_key = os.getenv("OPENROUTER_API_KEY")
-api_key = st.secrets["OPENROUTER_API_KEY"]
 
+api_key = st.secrets["OPENROUTER_API_KEY"]
 if api_key is None:
     raise ValueError("OPENROUTER_API_KEY not found in .env")
 
-# api_url = os.getenv("OPENROUTER_API_URL")
 api_url = st.secrets["OPENROUTER_API_URL"]
 if api_url is None:
     raise ValueError("OPENROUTER_API_url not found in .env")
